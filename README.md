@@ -1,9 +1,10 @@
 # go-expense-approval-api
 
-Tiga Level User
-1. Admin
+<h1> Tiga Level User </h1>
+<h2>1. Admin</h2>
+
 # Fungsi:
-   -Mengelola data user & approver
+   - Mengelola data user & approver
    - Menentukan urutan approval (approval stages)
    - Melihat semua pengajuan & statusnya
 # Hak akses:
@@ -11,16 +12,18 @@ Tiga Level User
    - Melihat semua expenses
    - Tidak ikut menyetujui pengeluaran
      
-2. Pemohon (Requester / User Biasa)
+<h2>2. Pemohon (Requester / User Biasa) </h2>
+
 # Fungsi:
-  - Mengajukan pengeluaran
-  - Melihat status pengajuan mereka
+   - Mengajukan pengeluaran
+   - Melihat status pengajuan mereka
 # Hak akses:
   - Buat expense
   - Lihat expense milik sendiri
   - Tidak bisa approve
 
-3. Approver
+<h2>3. Approver</h2>
+
 # Fungsi:
   - Menyetujui atau menolak pengeluaran berdasarkan urutan
   - Hanya bisa approve jika sudah waktunya (berdasarkan stage)
