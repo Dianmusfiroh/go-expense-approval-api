@@ -1,0 +1,10 @@
+CREATE TABLE approvals (
+    id SERIAL PRIMARY KEY,
+    expense_id INTEGER NOT NULL REFERENCES expenses(id) ON DELETE CASCADE,
+    approver_id INTEGER NOT NULL REFERENCES approvers(id),
+    status_id INTEGER NOT NULL REFERENCES statuses(id),
+    approved_at TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL DEFAULT NULL
+);

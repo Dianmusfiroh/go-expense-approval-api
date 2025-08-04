@@ -1,0 +1,9 @@
+CREATE TABLE approval_stages (
+    id SERIAL PRIMARY KEY,
+    approver_id INTEGER NOT NULL REFERENCES approvers(id),
+    stage_order INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL DEFAULT NULL
+
+);
