@@ -11,4 +11,5 @@ type ExpenseResponse struct {
 	Amount      float64 `json:"amount"`
 	Description string  `json:"description"`
 	Status      string  `json:"status"`
+	Code        string  `json:"code"`
 }

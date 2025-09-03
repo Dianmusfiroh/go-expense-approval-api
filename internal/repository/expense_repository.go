@@ -23,6 +23,6 @@ func (r *expenseRepository) Create(expense *models.Expense) error {
 
 func (r *expenseRepository) FindAll() ([]models.Expense, error) {
 	var expenses []models.Expense
-	err := r.db.Preload("Status").Find(&expenses).Error
+	err := r.db.Preload("User").Preload("Status").Find(&expenses).Error
 	return expenses, err
 }

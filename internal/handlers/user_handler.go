@@ -6,6 +6,7 @@ import (
 	"github.com/Dianmusfiroh/go-expense-approval-api/internal/dto"
 	"github.com/Dianmusfiroh/go-expense-approval-api/internal/services"
 	"github.com/gofiber/fiber/v2"
+
 )
 
 type UserHandler struct {
@@ -166,4 +167,8 @@ func (h *UserHandler) HardDelete(c *fiber.Ctx) error {
     "message": "Hard Deleted Data successfully",
     "data":    id,
 	})
+
+
 }
+
+

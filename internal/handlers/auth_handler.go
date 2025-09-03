@@ -1,8 +1,10 @@
 package handlers
 
 import (
+	"fmt"
 	"time"
 
+	"github.com/Dianmusfiroh/go-expense-approval-api/internal/middleware"
 	"github.com/Dianmusfiroh/go-expense-approval-api/internal/models"
 	"github.com/gofiber/fiber/v2"
 	"github.com/golang-jwt/jwt/v5"
@@ -68,3 +70,45 @@ func Login(c *fiber.Ctx) error {
 		"token": tokenString,
 	})
 }
+
+
+func GetUserLogin(c *fiber.Ctx) error {
+	// PERBAIKAN: Logika validasi token sudah dipindah ke middleware.
+	// Handler ini sekarang hanya fokus pada tugasnya: mengambil data user.
+
+	// Ambil claims yang sudah divalidasi dari middleware.
+	claims, ok := c.Locals("claims").(*middleware.JwtClaims)
+	if !ok {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"error": "Could not parse claims",
+		})
+	}
+	
+	db := c.Locals("db").(*gorm.DB)
+	if !ok {
+		fmt.Println("[Handler] Gagal mengambil atau mengonversi claims dari context!")
+	} else {
+		fmt.Printf("[Handler] Claims received: UserID=%d, Role=%s\n", claims.UserID, claims.Role)
+	}
+	// Cari user berdasarkan id dari claims.
+	var user models.User
+	if err := db.First(&user, "id = ?", claims.UserID).Error; err != nil {
+		return c.Status(fiber.StatusNotFound).JSON(fiber.Map{"error": "User not found"})
+	}
+
+	return c.JSON(fiber.Map{
+		"id":    user.ID,
+		"name":  user.Name,
+		"email": user.Email,
+		"role":  user.Role,
+	})
+}
+
+
+
+func Logout(c *fiber.Ctx) error {
+	return c.JSON(fiber.Map{
+		"message": "Logout successfully",
+	})
+}
+
