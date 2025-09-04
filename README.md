@@ -17,21 +17,20 @@ Sebuah RESTful API untuk sistem persetujuan pengeluaran (expense approval) berta
 ## 📁 Struktur Proyek
 
 
-├── cmd/
-├── config/
-├── internal/
-│ ├── dto/
-│ ├── handlers/
-│ ├── middleware/
-│ ├── models/
-│ ├── repository/
-│ ├── routes/
-│ └── services/
-├── test/
-│ └── mocks/
-├── go.mod
-├── go.sum
-└── main.go
+├── cmd/  
+├── config/  
+├── internal/  
+│ ├── dto/  
+│ ├── handlers/  
+│ ├── middleware/  
+│ ├── models/  
+│ ├── repository/  
+│ ├── routes/  
+│ └── services/  
+│ └── mocks/  
+├── go.mod  
+├── go.sum  
+└── main.go  
 
 ---
 
@@ -76,47 +75,47 @@ API tersedia di http://localhost:3000/api
 go test internal/handlers/user_handler_test.go
 ````
 
-📬 API Endpoint
-🔐 Auth
-    - POST /api/login – Login dan dapatkan JWT
+📬 API Endpoint  
+🔐 Auth  
+    - POST /api/login – Login dan dapatkan JWT  
 
-👤 User
-    - GET /api/users
-    - POST /api/users
-    - PUT /api/users/:id
-    - PATCH /api/users/:id
-    - DELETE /api/users/:id
-    - DELETE /api/users/:id/hard (hard delete)
+👤 User  
+    - GET /api/users  
+    - POST /api/users  
+    - PUT /api/users/:id  
+    - PATCH /api/users/:id  
+    - DELETE /api/users/:id  
+    - DELETE /api/users/:id/hard (hard delete)  
+ 
+🧑‍💼 Approver  
+    - GET /api/approvers  
+    - POST /api/approvers  
+    - PUT /api/approvers/:id  
+    - DELETE /api/approvers/:id  
 
-🧑‍💼 Approver
-    - GET /api/approvers
-    - POST /api/approvers
-    - PUT /api/approvers/:id
-    - DELETE /api/approvers/:id
+🪜 Approval Stage  
+    - GET /api/approval-stages  
+    - POST /api/approval-stages  
+    - PUT /api/approval-stages/:id  
+    - DELETE /api/approval-stages/:id  
 
-🪜 Approval Stage
-    - GET /api/approval-stages
-    - POST /api/approval-stages
-    - PUT /api/approval-stages/:id
-    - DELETE /api/approval-stages/:id
+💸 Expense  
+    - GET /api/expenses  
+    - POST /api/expenses  
+    - PUT /api/expenses/:id  
+    - DELETE /api/expenses/:id  
 
-💸 Expense
-    - GET /api/expenses
-    - POST /api/expenses
-    - PUT /api/expenses/:id
-    - DELETE /api/expenses/:id
+✅ Approval  
+    - POST /api/expenses/:id/approve  
 
-✅ Approval
-    - POST /api/expenses/:id/approve
+🛡️ Middleware  
+Middleware JWT dipasang di semua route yang membutuhkan autentikasi.  
 
-🛡️ Middleware
-Middleware JWT dipasang di semua route yang membutuhkan autentikasi.
-
-Authorization: Bearer <token> harus dikirim di setiap request yang dilindungi.
+Authorization: Bearer <token> harus dikirim di setiap request yang dilindungi.  
 
 
-🧰 Tools & Library
-Fiber – Web Framework
-GORM – ORM
-JWT – Autentikasi
-Testify – Unit Testing
+🧰 Tools & Library  
+    - Fiber – Web Framework  
+    - GORM – ORM  
+    - JWT – Autentikasi  
+    - Testify – Unit Testing  
